@@ -2,9 +2,9 @@ import { memo, useState } from "react";
 import dynamic from "next/dynamic";
 import { AddProductToWishListProps } from "./AddProductToWishlist";
 
-const AddProductToWishlist = dynamic<AddProductToWishListProps>(() => {
-  return import("./AddProductToWishlist").then(mod => mod.AddProductToWishlist);
-}, {
+const AddProductToWishlist = dynamic<AddProductToWishListProps>(() => 
+  import("./AddProductToWishlist").then(mod => mod.AddProductToWishlist)
+, {
   loading: () => <span>Carregando...</span>
 });
 
