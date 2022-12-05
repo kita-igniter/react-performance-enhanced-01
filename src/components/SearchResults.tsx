@@ -13,11 +13,16 @@ interface SearchResultsProps {
 
 export function SearchResults({ results, onAddToWishList, totalPrice}: SearchResultsProps) {
 
+ 
   const rowRenderer: ListRowRenderer = ({ index, key, style }) => {
+    const formattedResult = {
+      ...results[index],
+      priceFormatted: ''
+    }
     return (
       <div key={key} style={style}>
         <ProductItem 
-          product={results[index]}
+          product={formattedResult}
           onAddToWishList={onAddToWishList}
         />
       </div>
